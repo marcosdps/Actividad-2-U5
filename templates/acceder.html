@@ -1,0 +1,26 @@
+{% extends "base_template.html" %}
+{% block title %}Acceso{% endblock %}
+{% block content %}
+        
+    <form action = "{{ request.path }}" method = "post" class= "container">
+        
+        <h2>Ingreso de datos</h2>
+        <br>   
+        <label for = "email">Correo Electrónico</label><br>
+        <input type = "text" name = "email" placeholder = "email" /><br> 
+
+        <label for = "password">Ingrese su contraseña</label><br>
+        <input type = "password" name = "password" placeholder = "contraseña"/><br>
+
+        <label for = "rol">Rol</label><br>
+        <select name = "rol">
+            <option value=""></option>
+            <option value="preceptor">Preceptor</option>
+            <option value="padre">Padre</option>
+        </select>
+        <br>
+		<br>
+         <input type = "submit" value = "Ingreso" />
+
+    </form>	  
+{% endblock %}

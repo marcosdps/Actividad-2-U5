@@ -1,0 +1,9 @@
+{% extends "base_template.html" %}
+{% block title %}Menu Preceptor{% endblock %}
+{% block content %}
+    <h1>Bienvenido/a preceptor/a {{ usuario.nombre }}</h1>
+    <h3>Lista de acciones</h3>
+    <h4><a href="{{ url_for('registrarAsistencia') }}">Registrar asistencia</a></h4>
+    <h4><a href="{{ url_for('informeDetallado') }}">Informe detallado</a></h4>
+{% endblock %}
+

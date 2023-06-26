@@ -1,0 +1,37 @@
+{% extends "base_template.html" %}
+{% block title %}Lista Detallada{% endblock %}
+{% block content %}
+    <hr/>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre y Apellido</th>
+                <th>DNI</th>
+                <th>|P.Aula|</th>
+                <th>|P.Educación Física|</th>
+                <th>|A.Justificada Aula|</th>
+                <th>|A.Sin Justificar Aula|</th>
+                <th>|A.Justificada Educación Física|</th>
+                <th>|A.Sin Justificar Educación Física|</th>
+                <th>|Total de Inasistencias|</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detalles in lista|sort(attribute='estudiante.apellido') %}
+                <tr>
+                    <td style = "text-align: center;">{{ detalles.estudiante.apellido }} {{ detalles.estudiante.nombre }}</td>
+                    <td style = "text-align: center;">{{ detalles.estudiante.dni }}</td>
+                    <td style = "text-align: center;">{{ detalles.asist_Aula }}</td>
+                    <td style = "text-align: center;">{{ detalles.asist_EduFisi }}</td>
+                    <td style = "text-align: center;">{{ detalles.aus_justi_Aula }}</td>
+                    <td style = "text-align: center;">{{ detalles.aus_sinjusti_Aula }}</td>
+                    <td style = "text-align: center;">{{ detalles.aus_justi_EduFisi }}</td>
+                    <td style = "text-align: center;">{{ detalles.aus_sinjusti_EduFisi }}</td>
+                    <td style = "text-align: center;">{{ detalles.total_aus }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+<td style="text-align: center;">{{ curso.anio }}</td>

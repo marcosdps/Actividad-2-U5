@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}{% endblock %}
+        <hr>
+        <br><a href="{{ url_for('inicio') }}">INICIO</a><br>
+    </div>	
+</body>
+</html>

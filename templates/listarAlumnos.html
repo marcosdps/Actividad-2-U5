@@ -1,0 +1,45 @@
+{% extends "base_template.html" %}
+{% block title %}Cursos{% endblock %}
+{% block content %}
+    
+    <form action="{{ url_for('registrarDatos') }}" method="POST" class="container">
+        <input type="hidden" name="fecha" value="{{ datos.fecha }}">
+        <input type="hidden" name="aula" value="{{ datos.aula }}">
+        <h1>Lista de alumnos</h1>
+        <br>
+        <h2>Asistencia fecha {{ datos.fecha }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>DNI</th>
+                    <th>Justificación</th>
+                    <th>Asistencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for estudiante in datos["estudiantes"]|sort(attribute='apellido') %}
+                    <tr>
+                        <td>{{ estudiante.nombre }}</td>
+                        <td>{{ estudiante.apellido }}</td>
+                        <td>{{ estudiante.dni }}</td>
+                        <td>
+                            <input type="hidden" name="IDestudiante" value="{{ estudiante.id }}">
+                            <input type="text" name="justificacion">
+                        </td>
+                        <td>
+                            <select name="asistencia">
+                                <option value=None></option>
+                                <option value="s">Presente</option>
+                                <option value="n">Ausente</option>
+                            </select>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" value="Registrar">
+    </form>
+{% endblock %}
+

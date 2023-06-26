@@ -1,0 +1,55 @@
+{% extends "base_template.html" %}
+{% block title %}Cursos{% endblock %}
+{% block content %}
+
+<form action="{{ request.path }}" method="POST" class="container">
+    <h1>Cursos asignados</h1>
+	<br>
+    <h2>Detalles del Curso</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Año</th>
+                <th>División</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for curso in cursos %}
+                <tr>
+                    <td>Curso {{ loop.index }}</td>
+                    <td style="text-align: center;">{{ curso.anio }}</td>
+                    <td style="text-align: center;">{{ curso.anio }}</td>
+                    <td><input type="radio" name="cursoID" value="{{ curso.id }}"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <hr/>
+    {% if esRegistroAsistencia == True %}
+		<table>
+			<thead>
+			<th>Seleccione una clase</th>
+			<th>Seleccione una fecha</th>
+		</thead>
+		<tbody>
+			<td>
+				<select name="clase">
+					<option value=None></option>
+					<option value=1>Aula</option>
+					<option value=2>Educacion Fisica</option>
+				</select>
+			</td>
+			<td><input type="date" name="fecha"></td>
+		</tbody>
+
+		</table>
+    {% endif %}
+	<br>
+    <button type="submit">Seleccionar Curso</button>
+</form>
+
+{% endblock %}

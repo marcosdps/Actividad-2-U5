@@ -1,0 +1,29 @@
+{% extends "base_template.html" %}
+{% block title %}Registrar Usuario{% endblock %}
+{% block content %}
+     <h1>Registro de Usuario</h1>
+      <hr/>        
+      <form action = "{{ request.path }}" method = "post" class = "container">
+         <label for = "nombre">Nombre</label><br>
+         <input type = "text" name = "nombre" placeholder = "Nombre" /><br>
+		 
+         <label for = "nombre">Apellido</label><br>
+         <input type = "text" name = "apellido" placeholder = "Apellido" /><br>
+
+         <label for = "email">Correo Electrónico</label><br>
+         <input type = "text" name = "email" placeholder = "Email" /><br>
+		 
+         <label for = "password">Contraseña</label><br>
+         <input type = "password" name = "password" placeholder = "Clave"/><br>
+
+         <label for = "rol">Rol</label><br>
+         <select name = "rol">
+            <option value="preceptor">Preceptor</option>
+            <option value="padre">Padre</option>
+        </select>
+		 <br>
+         <br>
+         <input type = "submit" value = "Registrar" />
+		  
+      </form>
+{% endblock %}
